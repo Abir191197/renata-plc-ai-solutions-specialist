@@ -1,8 +1,14 @@
 # Renata PLC – AI Solutions Specialist (HR) Take-Home Assessment
 
-An enterprise-grade, policy-grounded HR Leave Policy Assistant built for **Renata PLC**. The assistant strictly answers employee leave queries according to **XYZ Company Leave Policy (HR-POL-004 v2.0)**, enforces mandatory citations, admits unknown queries, and strictly protects employee personal data.
+An enterprise-grade, policy-grounded HR Leave Policy Assistant built for the **Renata PLC** take-home assessment. The assistant strictly answers employee leave queries according to **XYZ Company Leave Policy (HR-POL-004 v2.0)**, enforces mandatory citations, admits unknown queries, and strictly protects employee personal data.
 
 ---
+
+## 🌐 Live Working Application
+
+👉 **Live Demo URL**: [https://renata-plc-ai-solutions-specialist-rho.vercel.app/](https://renata-plc-ai-solutions-specialist-rho.vercel.app/)
+
+*(Evaluators can test the assistant live immediately without local setup. An optional in-browser "Custom API Key" button is also provided for testing with any custom Gemini key).*
 
 ## 🌟 Key Functional Requirements Adherence
 
@@ -19,7 +25,7 @@ An enterprise-grade, policy-grounded HR Leave Policy Assistant built for **Renat
 - **Framework**: Next.js 15 (App Router) + React
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS (Renata Corporate Blue & Slate palette)
-- **AI Model**: Google Gemini 1.5 Flash (`@google/generative-ai`)
+- **AI Model**: Google Gemini 3.5 Flash-Lite / Flash (`@google/generative-ai`)
   - Configured with `temperature: 0.1` for deterministic, zero-hallucination compliance.
 - **Icons**: Lucide React
 
