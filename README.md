@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Renata PLC – AI Solutions Specialist (HR) Take-Home Assessment
 
-## Getting Started
+An enterprise-grade, policy-grounded HR Leave Policy Assistant built for **Renata PLC**. The assistant strictly answers employee leave queries according to **XYZ Company Leave Policy (HR-POL-004 v2.0)**, enforces mandatory citations, admits unknown queries, and strictly protects employee personal data.
 
-First, run the development server:
+---
 
+## 🌟 Key Functional Requirements Adherence
+
+| Requirement | Implementation & Behavior |
+| :--- | :--- |
+| **Requirement 1: Answer Correctly & Cite the Policy** | Grounded strictly in policy sections 1 through 11. Cites specific section numbers and headings (e.g. `Section 4.2: Casual Leave`) on every answer. No hallucinated rules or numbers. |
+| **Requirement 2: Admit When Not Covered** | If a query is outside the policy (e.g., study leave, pet leave, bonus, remote work), returns verbatim: `"I don't know, please contact HR."` |
+| **Requirement 3: Protect Employee Personal Data** | Inquiries regarding another colleague's records (e.g., *"How many leave days has Rahim taken?"*) are politely refused under **Section 9 (Confidentiality of Leave Records)**, redirecting users to authorized HR channels. |
+
+---
+
+## 🛠️ Technology Stack
+
+- **Framework**: Next.js 15 (App Router) + React
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS (Renata Corporate Blue & Slate palette)
+- **AI Model**: Google Gemini 1.5 Flash (`@google/generative-ai`)
+  - Configured with `temperature: 0.1` for deterministic, zero-hallucination compliance.
+- **Icons**: Lucide React
+
+---
+
+## 🚀 Running Locally
+
+Follow these instructions to run the application locally on your machine:
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Abir191197/renata-plc-ai-solutions-specialist.git
+cd renata-plc-ai-solutions-specialist
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure Environment
+Create a `.env.local` file in the root directory (refer to `.env.example`):
+```bash
+cp .env.example .env.local
+```
+Add your Google Gemini API key:
+```env
+GEMINI_API_KEY=AIzaSy...
+```
+*(Note: A Gemini API key can be obtained in 30 seconds for free at [Google AI Studio](https://aistudio.google.com/app/apikey). Alternatively, you can run the app without `.env.local` and enter your key directly in the web UI via the **"Custom API Key"** button).*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Install Dependencies
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Run the Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to interact with the assistant.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🧪 Testing the 3 Assessment Scenarios
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+For convenience and quick review, the interface features 3 one-click test chips:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **In-Policy Query**: Click *"Can I take 3 days casual leave?"*
+   - Returns entitlement rules and cites **Section 4.2(b)**.
+2. **Out-of-Policy Query**: Click *"Does company offer study leave?"*
+   - Strictly outputs: `"I don't know, please contact HR."`
+3. **Privacy Protection**: Click *"How many leaves has Rahim taken?"*
+   - Politely refuses under **Section 9 (Confidentiality of Leave Records)**.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔒 Security & Data Privacy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- No personal or corporate employee records are stored or transmitted.
+- The assistant operates in a zero-persistence Q&A mode against the public leave policy document.
+- API keys are handled securely via server-side Next.js route handlers (`/api/chat`) and never exposed in browser bundles.
