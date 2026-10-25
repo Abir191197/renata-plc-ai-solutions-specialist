@@ -30,13 +30,12 @@ export async function POST(req: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     
-    // Model fallback sequence to guarantee availability across all API tiers
+    // Google Gemini current models for 2026
     const candidateModels = [
-      "gemini-2.5-flash",
-      "gemini-2.0-flash",
-      "gemini-1.5-flash-latest",
-      "gemini-1.5-flash",
-      "gemini-pro"
+      "gemini-3.8-flash",
+      "gemini-flash-latest",
+      "gemini-3.5-flash",
+      "gemini-2.5-flash"
     ];
 
     let reply = "";
@@ -84,12 +83,12 @@ GENERAL INSTRUCTION:
         if (reply) break;
       } catch (err: any) {
         lastError = err;
-        console.warn(`Model ${modelName} attempt failed, trying next candidate...`);
+        console.warn(`Model ${modelName} failed:`, err?.message || err);
       }
     }
 
     if (!reply) {
-      throw lastError || new Error("Failed to generate response from model service.");
+      throw lastError || new Error("All model candidates were unavailable.");
     }
 
     return NextResponse.json({ reply });
@@ -98,7 +97,7 @@ GENERAL INSTRUCTION:
     return NextResponse.json(
       {
         error:
-          "Unable to process request at this moment. Please verify your Gemini API key in .env.local or via Settings.",
+          "The HR Leave Policy service is currently experiencing a temporary connection delay. Please try your question again in a moment.",
       },
       { status: 500 }
     );
