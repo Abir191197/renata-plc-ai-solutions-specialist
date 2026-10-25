@@ -30,11 +30,11 @@ export async function POST(req: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     
-    // Google Gemini verified models (2026 endpoint generation)
+    // Optimized High-Quota Models (500 Requests/Day each, 15 RPM)
     const candidateModels = [
       "gemini-3.5-flash-lite",
-      "gemini-3.5-flash",
-      "gemini-3.8-flash"
+      "gemini-3.1-flash-lite",
+      "gemini-3.5-flash"
     ];
 
     let reply = "";
