@@ -29,13 +29,28 @@ export async function POST(req: NextRequest) {
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-      generationConfig: {
-        temperature: 0.1,
-        maxOutputTokens: 800,
-      },
-      systemInstruction: `You are the official HR Leave Policy Assistant for XYZ Company (Assessment for Renata PLC).
+    
+    // Model fallback sequence to guarantee availability across all API tiers
+    const candidateModels = [
+      "gemini-2.5-flash",
+      "gemini-2.0-flash",
+      "gemini-1.5-flash-latest",
+      "gemini-1.5-flash",
+      "gemini-pro"
+    ];
+
+    let reply = "";
+    let lastError: any = null;
+
+    for (const modelName of candidateModels) {
+      try {
+        const model = genAI.getGenerativeModel({
+          model: modelName,
+          generationConfig: {
+            temperature: 0.1,
+            maxOutputTokens: 800,
+          },
+          systemInstruction: `You are the official HR Leave Policy Assistant for XYZ Company (Assessment for Renata PLC).
 Your purpose is to answer employee questions strictly and exclusively using the attached Sample Leave Policy.
 
 ==================== ATTACHED LEAVE POLICY (FULL TEXT) ====================
@@ -62,17 +77,29 @@ REQUIREMENT 3: PROTECT OTHER EMPLOYEES' PERSONAL DATA
 GENERAL INSTRUCTION:
 - Keep answers professional, concise, and clear.
 `,
-    });
+        });
 
-    const result = await model.generateContent(message);
-    const reply = result.response.text();
+        const result = await model.generateContent(message);
+        reply = result.response.text();
+        if (reply) break;
+      } catch (err: any) {
+        lastError = err;
+        console.warn(`Model ${modelName} attempt failed, trying next candidate...`);
+      }
+    }
+
+    if (!reply) {
+      throw lastError || new Error("Failed to generate response from model service.");
+    }
 
     return NextResponse.json({ reply });
   } catch (error: any) {
     console.error("API error:", error);
-    const errorMessage = error?.message || "Internal server error";
     return NextResponse.json(
-      { error: `Gemini API Error: ${errorMessage}` },
+      {
+        error:
+          "Unable to process request at this moment. Please verify your Gemini API key in .env.local or via Settings.",
+      },
       { status: 500 }
     );
   }
