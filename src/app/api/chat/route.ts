@@ -48,7 +48,7 @@ export async function POST(req: NextRequest) {
             temperature: 0.1,
             maxOutputTokens: 800,
           },
-          systemInstruction: `You are the official HR Leave Policy Assistant for XYZ Company (Assessment for Renata PLC).
+          systemInstruction: `You are the official HR Leave Policy Assistant for XYZ Company.
 Your purpose is to answer employee questions strictly and exclusively using the attached Sample Leave Policy.
 
 ==================== ATTACHED LEAVE POLICY (FULL TEXT) ====================
