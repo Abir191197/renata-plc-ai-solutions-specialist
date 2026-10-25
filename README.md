@@ -41,16 +41,25 @@ git clone https://github.com/Abir191197/renata-plc-ai-solutions-specialist.git
 cd renata-plc-ai-solutions-specialist
 ```
 
-### 2. Configure Environment
-Create a `.env.local` file in the root directory (refer to `.env.example`):
+### 2. Obtain & Configure Gemini API Key
+
+#### How to get a free Google Gemini API Key:
+1. Go to **[Google AI Studio](https://aistudio.google.com/app/apikey)** and sign in with any Google account.
+2. Click the blue button: **"Create API key"** (or **"Get API key"**).
+3. Select **"Create API key in new project"** (or choose an existing project).
+4. Copy the generated key (starts with `AIzaSy...`).
+
+#### Adding the Key to the Project:
+Create a `.env.local` file in the root directory (you can copy `.env.example`):
 ```bash
 cp .env.example .env.local
 ```
-Add your Google Gemini API key:
+Open `.env.local` and paste your key:
 ```env
-GEMINI_API_KEY=AIzaSy...
+GEMINI_API_KEY=AIzaSyYourCopiedKeyHere
 ```
-*(Note: A Gemini API key can be obtained in 30 seconds for free at [Google AI Studio](https://aistudio.google.com/app/apikey). Alternatively, you can run the app without `.env.local` and enter your key directly in the web UI via the **"Custom API Key"** button).*
+
+> **Note for Evaluators**: You do not have to edit files if you prefer not to. You can launch the app directly or visit the [Live Demo](https://renata-plc-ai-solutions-specialist-rho.vercel.app/) and click the **"Custom API Key"** button in the top-right header to input your key directly in the browser session.
 
 ### 3. Install Dependencies
 ```bash
