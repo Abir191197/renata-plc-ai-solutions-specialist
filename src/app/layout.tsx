@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Renata PLC | HR Leave Policy Assistant",
+  title: "XYZ Company | HR Leave Policy Assistant",
   description: "Official HR Leave Policy Assistant for XYZ Company (HR-POL-004 v2.0)",
 };
 

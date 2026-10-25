@@ -15,7 +15,7 @@ export default function Home() {
     {
       id: "welcome",
       sender: "assistant",
-      text: "Welcome to the Renata HR Leave Policy Assistant. You can ask any question regarding XYZ Company's Leave Policy (HR-POL-004), including leave entitlements, approval workflows, and rules. How can I help you today?",
+      text: "Welcome to the XYZ Company HR Leave Policy Assistant. You can ask any question regarding our Leave Policy (HR-POL-004 v2.0), including leave entitlements, approval workflows, and rules. How can I help you today?",
       timestamp: "Just now",
     },
   ]);
@@ -124,11 +124,11 @@ export default function Home() {
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center font-bold text-xl tracking-wider border border-white/20">
-              R
+              XYZ
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <h1 className="text-lg font-semibold tracking-tight">RENATA PLC</h1>
+                <h1 className="text-lg font-semibold tracking-tight">XYZ COMPANY</h1>
                 <span className="text-xs px-2 py-0.5 rounded bg-blue-800/80 text-blue-100 font-medium border border-blue-700">
                   HR Portal
                 </span>
@@ -213,7 +213,7 @@ export default function Home() {
               >
                 <div className="flex items-center space-x-2 mb-1 px-1">
                   <span className="text-xs font-medium text-slate-500">
-                    {isUser ? "You" : "Renata HR Assistant"}
+                    {isUser ? "You" : "XYZ HR Assistant"}
                   </span>
                   <span className="text-[11px] text-slate-400">{m.timestamp}</span>
                 </div>
@@ -232,7 +232,7 @@ export default function Home() {
 
           {loading && (
             <div className="flex flex-col items-start">
-              <div className="text-xs font-medium text-slate-500 mb-1 px-1">Renata HR Assistant</div>
+              <div className="text-xs font-medium text-slate-500 mb-1 px-1">XYZ HR Assistant</div>
               <div className="bg-slate-100 border border-slate-200 rounded-xl rounded-bl-none px-4 py-3 flex items-center space-x-2">
                 <div className="w-2 h-2 rounded-full bg-[#00569B] animate-pulse"></div>
                 <div className="w-2 h-2 rounded-full bg-[#00569B] animate-pulse delay-150"></div>
