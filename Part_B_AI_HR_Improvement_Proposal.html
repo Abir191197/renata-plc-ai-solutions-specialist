@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Renata PLC - Part B - AI HR Process Improvement Proposal</title>
+<style>
+  @page {
+    size: A4;
+    margin: 16mm 18mm 16mm 18mm;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1e293b;
+    line-height: 1.42;
+    font-size: 10pt;
+    margin: 0;
+    padding: 20px 24px;
+    background: #ffffff;
+  }
+  .header {
+    border-bottom: 2px solid #00569B;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 14pt;
+    color: #0f172a;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+  }
+  .meta-bar {
+    font-size: 8.5pt;
+    color: #64748b;
+    display: flex;
+    justify-content: space-between;
+  }
+  h2 {
+    font-size: 10pt;
+    color: #00569B;
+    margin: 10px 0 4px 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  p {
+    margin: 0 0 5px 0;
+  }
+  ul {
+    margin: 2px 0 6px 18px;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+  b {
+    color: #0f172a;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 8px 0;
+    font-size: 8.5pt;
+  }
+  th, td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 8px;
+    text-align: left;
+  }
+  th {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-weight: 600;
+  }
+  @media print {
+    body {
+      padding: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Enhancing High-Volume Candidate Screening with Blind AI Parsing</h1>
+  <div class="meta-bar">
+    <span><b>Assessment:</b> AI Solutions Specialist – HR</span>
+    <span><b>Target Organization:</b> Renata PLC</span>
+    <span><b>Domain:</b> Talent Acquisition & Screening</span>
+  </div>
+</div>
+
+<h2>1. The Process and the Problem</h2>
+<p>
+In large-scale pharmaceutical, manufacturing, and commercial enterprises like Renata PLC, nationwide recruitment drives (e.g., Medical Promotion Officers, QC/QA Analysts, Management Trainees) routinely attract thousands of applications per opening.
+</p>
+<ul>
+  <li><b>Manual Review Bottleneck:</b> Recruiters spend 2–3 minutes skimming each CV across unstructured PDF and Word formats, requiring 2 to 3 weeks just to assemble an initial shortlist.</li>
+  <li><b>Recruiter Fatigue & Inconsistency:</b> Evaluating hundreds of submissions daily leads to cognitive fatigue and inconsistent criteria application.</li>
+  <li><b>Unconscious Demographic Bias:</b> Subconscious bias regarding universities, gender, or regional background often leads to high-potential non-traditional talent being prematurely filtered out.</li>
+</ul>
+
+<h2>2. AI-Based Improvement & Impact</h2>
+<p>We deploy an <b>Agentic Resume Screening Pipeline</b> with automated redaction, competency parsing, and verifiable evidence scoring:</p>
+<ul>
+  <li><b>Automated Blind Screening:</b> Personally Identifiable Information (PII)—including candidate name, gender, photos, age, and address—is automatically redacted before evaluation. Profiles are judged purely against objective job criteria.</li>
+  <li><b>Evidence-Backed Fit Scoring:</b> Instead of an opaque score, the model produces an auditable evaluation rubric with direct resume citations (e.g., <i>'Matched: 3 years HPLC chromatography experience in a cGMP plant'</i>).</li>
+  <li><b>Stakeholder Impact:</b> Recruiters receive an automated pre-ranked shortlist within hours of job closure, saving 15–20 hours per role. Candidates experience feedback response SLAs dropping from 4 weeks to under 5 days.</li>
+</ul>
+
+<h2>3. Recommended Technology Stack</h2>
+<table>
+  <tr>
+    <th style="width: 25%;">Pipeline Layer</th>
+    <th style="width: 32%;">Technology</th>
+    <th>Strategic Rationale</th>
+  </tr>
+  <tr>
+    <td><b>Document Ingestion</b></td>
+    <td>LlamaParse / Unstructured.io</td>
+    <td>Accurate multi-column layout and academic table extraction from unstructured resumes.</td>
+  </tr>
+  <tr>
+    <td><b>Extraction & Anonymization</b></td>
+    <td>OpenAI GPT-4o-mini / Gemini Flash</td>
+    <td>High-speed, cost-effective structured JSON schema extraction & deterministic PII redaction.</td>
+  </tr>
+  <tr>
+    <td><b>Semantic Matching</b></td>
+    <td>pgvector (PostgreSQL) / Pinecone</td>
+    <td>Dense vector embeddings matching candidate skills against specific Job Descriptions.</td>
+  </tr>
+  <tr>
+    <td><b>Workflow Orchestration</b></td>
+    <td>n8n / Temporal Workflow</td>
+    <td>Enterprise workflow connecting Applicant Tracking Systems (ATS) to the evaluation engine.</td>
+  </tr>
+</table>
+
+<h2>4. Risk Management & Governance</h2>
+<ul>
+  <li><b>Algorithmic Bias:</b> Models are evaluated strictly against explicit competency rubrics with blind PII. Regular four-fifths disparity ratio audits prevent demographic skew.</li>
+  <li><b>Hallucinations & False Rejections:</b> Enforce a strict <b>Human-in-the-Loop (HITL)</b> architecture. The AI <i>never</i> auto-rejects applicants—it ranks and summarizes. Borderline profiles are routed to a human review queue.</li>
+  <li><b>Data Privacy & Security:</b> Zero Data Retention (ZDR) enterprise API agreements guarantee applicant data is never used to train public models. AES-256 encryption applied in transit and at rest.</li>
+</ul>
+
+<h2>5. Success Metrics (KPIs)</h2>
+<ul>
+  <li><b>Time-to-Shortlist (TTS):</b> Shortlisting duration reduced from <b>14 business days to under 24 hours</b> (90%+ cycle acceleration).</li>
+  <li><b>Recruiter Efficiency:</b> <b>15+ recruiter hours saved</b> per requisition, allowing deeper candidate relationship management.</li>
+  <li><b>Interview-to-Offer Conversion:</b> Expected increase from 15% to 35%+ due to higher caliber candidate fit.</li>
+</ul>
+
+</body>
+</html>
