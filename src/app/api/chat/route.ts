@@ -30,9 +30,10 @@ export async function POST(req: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     
-    // Optimized High-Quota Models (500 Requests/Day each, 15 RPM)
-    // gemini-3.1-flash-lite responds in ~1-2s (vs ~15s on 3.5 preview)
+    // Primary flagship: Gemini 3.8 Flash
+    // If daily limit (20 RPD) or rate limit is reached, seamlessly fall back to high-quota models (500 RPD)
     const candidateModels = [
+      "gemini-3.8-flash",
       "gemini-3.1-flash-lite",
       "gemini-3.5-flash-lite",
       "gemini-3.5-flash"
