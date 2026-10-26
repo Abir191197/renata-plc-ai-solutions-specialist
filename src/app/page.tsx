@@ -398,7 +398,7 @@ export default function Home() {
           {loading && (
             <div className="flex gap-3 items-start">
               <div className="w-8 h-8 rounded-xl bg-white text-slate-700 border border-slate-200 flex items-center justify-center shrink-0 shadow-sm">
-                <Bot className="w-4 h-4 animate-spin text-slate-500" />
+                <Bot className="w-4 h-4 text-slate-600" />
               </div>
               <div className="bg-white border border-slate-200 rounded-2xl rounded-tl-none px-4 py-3 text-xs text-slate-500 shadow-sm flex items-center space-x-2">
                 <span className="inline-block w-1.5 h-1.5 rounded-full bg-slate-400 animate-pulse"></span>
