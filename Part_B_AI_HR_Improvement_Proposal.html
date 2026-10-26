@@ -5,54 +5,60 @@
 <title>Renata PLC - Part B - AI HR Process Improvement</title>
 <style>
   @page {
-    size: A4;
-    margin: 18mm 20mm 18mm 20mm;
+    size: A4 portrait;
+    margin: 12mm 15mm 12mm 15mm;
   }
   * {
     box-sizing: border-box;
   }
-  body {
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    color: #111827;
-    line-height: 1.45;
-    font-size: 10pt;
+  html, body {
     margin: 0;
-    padding: 24px 30px;
+    padding: 0;
     background: #ffffff;
+    color: #111827;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 8.8pt;
+    line-height: 1.32;
+  }
+  .container {
+    padding: 10px 15px;
+    max-width: 100%;
   }
   .header {
     border-bottom: 2px solid #1e3a8a;
-    padding-bottom: 6px;
-    margin-bottom: 14px;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
   }
   h1 {
-    font-size: 14pt;
+    font-size: 12pt;
     color: #111827;
-    margin: 0 0 4px 0;
+    margin: 0 0 2px 0;
     font-weight: bold;
+    line-height: 1.2;
   }
   .meta {
-    font-size: 8.5pt;
+    font-size: 8pt;
     color: #4b5563;
     display: flex;
     justify-content: space-between;
   }
   h2 {
-    font-size: 10pt;
+    font-size: 9pt;
     color: #1e3a8a;
-    margin: 10px 0 4px 0;
+    margin: 6px 0 2px 0;
     font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 0.3px;
   }
   p {
-    margin: 0 0 5px 0;
+    margin: 0 0 3px 0;
   }
   ul {
-    margin: 2px 0 6px 18px;
+    margin: 1px 0 4px 14px;
     padding: 0;
   }
   li {
-    margin-bottom: 3px;
+    margin-bottom: 1.5px;
   }
   b {
     color: #111827;
@@ -60,13 +66,14 @@
   table {
     width: 100%;
     border-collapse: collapse;
-    margin: 6px 0 8px 0;
-    font-size: 8.5pt;
+    margin: 4px 0 5px 0;
+    font-size: 8pt;
   }
   th, td {
     border: 1px solid #d1d5db;
-    padding: 4px 8px;
+    padding: 3px 6px;
     text-align: left;
+    vertical-align: top;
   }
   th {
     background-color: #f3f4f6;
@@ -74,7 +81,7 @@
     font-weight: bold;
   }
   @media print {
-    body {
+    .container {
       padding: 0;
     }
   }
@@ -82,79 +89,78 @@
 </head>
 <body>
 
-<div class="header">
-  <h1>Streamlining Employee Probation Tracking & Confirmation with Automated AI Follow-ups</h1>
-  <div class="meta">
-    <span><b>Assessment:</b> AI Solutions Specialist – HR</span>
-    <span><b>Target Organization:</b> Renata PLC</span>
-    <span><b>Topic:</b> Employee Life Cycle & Probation Confirmation</span>
+<div class="container">
+  <div class="header">
+    <h1>Streamlining Employee Probation Tracking & Confirmation with Automated AI Follow-ups</h1>
+    <div class="meta">
+      <span><b>Assessment:</b> AI Solutions Specialist – HR</span>
+      <span><b>Target:</b> Renata PLC</span>
+      <span><b>Focus:</b> Employee Life Cycle & Probation Confirmation</span>
+    </div>
   </div>
+
+  <h2>1. The Process and the Problem</h2>
+  <p>
+    Permanent new hires complete a mandatory 3-month probation period before formal employment confirmation (as cited in Leave Policy Section 2.2). Line Managers must evaluate role competence and culture fit before HR issues the confirmation letter.
+  </p>
+  <ul>
+    <li><b>Tracking via Static Spreadsheets:</b> HR manages hundreds of probation dates across nationwide sales depots, factories, and head office on disconnected Excel sheets. Expiry dates routinely slip past unnoticed.</li>
+    <li><b>Delayed Manager Feedback:</b> Busy managers postpone evaluations, frequently taking 4 to 5 months to submit basic confirmation feedback.</li>
+    <li><b>Employee Uncertainty:</b> New hires remain anxious about job security and cannot access confirmed benefits (e.g., Annual Leave under Section 2.2). HR staff waste days manually chasing signatures.</li>
+  </ul>
+
+  <h2>2. The AI-Based Improvement</h2>
+  <p>We deploy an <b>Automated Probation Milestone & Feedback Assistant</b> integrated into existing communications (Email / HR Portal):</p>
+  <ul>
+    <li><b>Milestone Triggers:</b> At Day 60 and Day 75, the assistant pings the Line Manager with a quick, conversational 3-minute performance check-in covering core competencies, attendance, and work quality.</li>
+    <li><b>Structured Summaries:</b> The assistant compiles manager bullet points into a standardized review memo with recommended outcomes: <i>Direct Confirmation</i>, <i>Extension</i>, or <i>Action Plan</i>.</li>
+    <li><b>Instant Documentation:</b> Upon final sign-off, the system auto-generates the formal Confirmation Letter for HR review and updates the employee record in PeopleHub on Day 90 without administrative delay.</li>
+  </ul>
+
+  <h2>3. Tools and Strategic Rationale</h2>
+  <table>
+    <tr>
+      <th style="width: 25%;">Component</th>
+      <th style="width: 32%;">Tool / Platform</th>
+      <th>Strategic Rationale</th>
+    </tr>
+    <tr>
+      <td><b>Workflow Automation</b></td>
+      <td>n8n / Power Automate</td>
+      <td>Scheduled triggers connecting hire dates to automated manager task alerts.</td>
+    </tr>
+    <tr>
+      <td><b>Language Model</b></td>
+      <td>Google Gemini Flash / GPT-4o-mini</td>
+      <td>Fast, low-cost text synthesis converting informal manager notes into standardized HR evaluation memos.</td>
+    </tr>
+    <tr>
+      <td><b>Document Generation</b></td>
+      <td>HTML-to-PDF / DocuSign</td>
+      <td>Instant generation of official confirmation letters with standard legal language.</td>
+    </tr>
+    <tr>
+      <td><b>Database & Records</b></td>
+      <td>PostgreSQL / HRIS API (PeopleHub)</td>
+      <td>Encrypted storage updating employee status from "Probationary" to "Confirmed".</td>
+    </tr>
+  </table>
+
+  <h2>4. Risks and Mitigation Strategies</h2>
+  <ul>
+    <li><b>Over-Reliance on Automation:</b> Managers might confirm staff without real thought. <i>Mitigation:</i> AI requires qualitative performance examples before generating the review, and HR retains final sign-off authority.</li>
+    <li><b>Subjective or Vague Feedback:</b> Managers might submit generic notes. <i>Mitigation:</i> The assistant flags ambiguous comments (e.g., "not doing well") and requests specific behavioral observations.</li>
+    <li><b>Personnel Privacy:</b> Performance evaluations contain sensitive personal assessments. <i>Mitigation:</i> Role-Based Access Control (RBAC) ensures only direct managers and central HR can view evaluation data.</li>
+  </ul>
+
+  <h2>5. Measuring Success (Key Metrics)</h2>
+  <ul>
+    <li><b>On-Time Confirmation Rate:</b> Increase on-time probation completions (within 90 days) from <b>55% to 95%+</b>.</li>
+    <li><b>Manager Turnaround:</b> Reduction in manager evaluation response time from <b>18 business days to under 48 hours</b>.</li>
+    <li><b>HR Time Saved:</b> Saving <b>10–12 hours per week</b> for HR operations by eliminating manual phone calls and paperwork.</li>
+    <li><b>New Hire Experience:</b> Higher onboarding satisfaction scores due to transparent, punctual confirmation.</li>
+  </ul>
 </div>
-
-<h2>1. The Process and the Problem</h2>
-<p>
-When a new permanent employee joins the organization, company policy dictates a mandatory 3-month probation period before formal employment confirmation (as highlighted in Leave Policy Section 2.2). During this time, Line Managers must assess performance and culture fit so HR can issue the confirmation letter.
-</p>
-<ul>
-  <li><b>Tracking via Static Spreadsheets:</b> HR teams manage hundreds of probation dates across nationwide sales depots, factories, and head office departments on disconnected Excel sheets. Expiry dates frequently slip past unnoticed.</li>
-  <li><b>Delayed Manager Feedback:</b> Line managers postpone evaluations due to busy schedules, often taking 4 to 5 months to submit basic confirmation feedback.</li>
-  <li><b>Employee Uncertainty:</b> New hires remain anxious about job security and cannot take confirmed benefits (such as Annual Leave under Section 2.2). HR staff waste hours manually chasing managers for signatures.</li>
-</ul>
-
-<h2>2. The AI-Based Improvement</h2>
-<p>We deploy an <b>Automated Probation Milestone & Feedback Assistant</b> linked with everyday employee communication channels (Email / Portal):</p>
-<ul>
-  <li><b>Proactive Milestone Prompts:</b> At Day 60 and Day 75, the assistant pings the Line Manager with a conversational 3-minute performance check-in covering key competencies, attendance, and work quality.</li>
-  <li><b>Structured Summary Generation:</b> The assistant compiles informal manager remarks into a standardized evaluation memo, categorizing the recommendation: <i>Direct Confirmation</i>, <i>Extension of Probation</i>, or <i>Action Plan Needed</i>.</li>
-  <li><b>Instant Documentation:</b> Upon final sign-off, the system auto-generates the formal Employment Confirmation Letter for HR review and automatically updates employee status in the HR system on Day 90.</li>
-</ul>
-
-<h2>3. Tools and Strategic Rationale</h2>
-<table>
-  <tr>
-    <th style="width: 25%;">Component</th>
-    <th style="width: 30%;">Tool / Platform</th>
-    <th>Strategic Rationale</th>
-  </tr>
-  <tr>
-    <td><b>Workflow Automation</b></td>
-    <td>n8n / Power Automate</td>
-    <td>Reliable, scheduled triggers connecting employee hire dates to manager task alerts.</td>
-  </tr>
-  <tr>
-    <td><b>Language Model</b></td>
-    <td>Google Gemini Flash / GPT-4o-mini</td>
-    <td>Cost-effective, rapid text summarization turning manager notes into standardized HR evaluation reports.</td>
-  </tr>
-  <tr>
-    <td><b>Document Generation</b></td>
-    <td>HTML-to-PDF / DocuSign</td>
-    <td>Automated generation of official confirmation letters with standardized legal wording.</td>
-  </tr>
-  <tr>
-    <td><b>Database & Records</b></td>
-    <td>PostgreSQL / HRIS API (PeopleHub)</td>
-    <td>Encrypted record storage updating employee status from "Probationary" to "Confirmed".</td>
-  </tr>
-</table>
-
-<h2>4. Risks and Mitigation Strategies</h2>
-<ul>
-  <li><b>Over-Reliance on Automation:</b> Managers might casually confirm employees without real thought.  
-  <i>Mitigation:</i> The AI requires specific qualitative examples before completing the review, and HR retains final approval sign-off.</li>
-  <li><b>Subjective or Vague Feedback:</b> A manager might give generic or biased feedback.  
-  <i>Mitigation:</i> The assistant flags ambiguous comments (e.g., "not doing well") and prompts the manager for concrete behavioral observations.</li>
-  <li><b>Privacy of Personnel Records:</b> Performance evaluations contain sensitive personal assessments.  
-  <i>Mitigation:</i> Role-Based Access Control (RBAC) ensures only the direct line manager and central HR personnel can view evaluation data.</li>
-</ul>
-
-<h2>5. Measuring Success (Key Metrics)</h2>
-<ul>
-  <li><b>On-Time Confirmation Rate:</b> Increase on-time probation completions (within 90 days) from <b>55% to 95%+</b>.</li>
-  <li><b>Manager Feedback Turnaround:</b> Reduction in manager evaluation submission time from <b>18 business days to under 48 hours</b>.</li>
-  <li><b>HR Administrative Hours:</b> Saving <b>10–12 hours per week</b> for the HR operations team by eliminating manual phone calls and paperwork.</li>
-  <li><b>New Hire Experience Score:</b> Significant improvement in new employee satisfaction due to transparent, punctual confirmation.</li>
-</ul>
 
 </body>
 </html>
