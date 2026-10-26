@@ -30,10 +30,8 @@ export async function POST(req: NextRequest) {
 
     const genAI = new GoogleGenerativeAI(apiKey);
     
-    // Primary flagship: Gemini 3.8 Flash
-    // If daily limit (20 RPD) or rate limit is reached, seamlessly fall back to high-quota models (500 RPD)
+    // High-performance models: gemini-3.1-flash-lite answers in 1.9s (500 RPD)
     const candidateModels = [
-      "gemini-3.8-flash",
       "gemini-3.1-flash-lite",
       "gemini-3.5-flash-lite",
       "gemini-3.5-flash"
