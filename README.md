@@ -4,9 +4,11 @@ An enterprise-grade, policy-grounded HR Leave Policy Assistant built for the **R
 
 ---
 
-## 🌐 Live Working Application
+## 📌 Assessment Deliverables & Links
 
-👉 **Live Demo URL**: [https://renata-plc-ai-solutions-specialist-rho.vercel.app/](https://renata-plc-ai-solutions-specialist-rho.vercel.app/)
+- 🌐 **Live Web Application**: [https://renata-plc-ai-solutions-specialist-rho.vercel.app/](https://renata-plc-ai-solutions-specialist-rho.vercel.app/)
+- 🎥 **Video Walkthrough (Under 3 Mins)**: [Watch on Google Drive](https://drive.google.com/file/d/1LW2I-mhLAvCpC4Ut05XU-Gxn8pTBDrXh/view?usp=sharing)
+- 📄 **Part B – Strategic Note (1-Page A4 PDF)**: [View on Google Drive](https://drive.google.com/file/d/1VTqMQO2Li3gSOPaTg7ordgYzG_21YJD8/view?usp=sharing)
 
 *(Evaluators can test the assistant live immediately without local setup. An optional in-browser "Custom API Key" button is also provided for testing with any custom Gemini key).*
 
